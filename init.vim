@@ -7,11 +7,13 @@ Plug 'ianks/vim-tsx'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " use coc extensions
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'ryanoasis/vim-devicons' " Icons
 Plug 'sheerun/vim-polyglot' " highlight for some languanges
 Plug 'preservim/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'itchyny/vim-gitbranch'
 
 
 if (has("nvim"))
@@ -99,3 +101,14 @@ function! HighlightWordUnderCursor()
 endfunction
 
 autocmd! CursorHold,CursorHoldI * call HighlightWordUnderCursor()
+
+" Git helper
+let g:lightline = {
+     \ 'active': {
+     \   'left': [ [ 'mode', 'paste' ],
+     \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+     \ },
+     \ 'component_function': {
+     \   'gitbranch': 'gitbranch#name'
+     \ },
+     \ }
