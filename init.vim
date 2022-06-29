@@ -25,6 +25,7 @@ call plug#end()
 " syntax
 filetype plugin indent on
 syntax on
+set encoding=UTF-8
 
 set number
 set splitright
